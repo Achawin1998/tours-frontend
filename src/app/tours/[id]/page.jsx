@@ -15,7 +15,7 @@ import { AuthContext } from "@/app/Context/AuthContext";
 const avatar = '../../images/avatar.jpg';
 
 function TourDetails({ params }) {
-
+  
   const id = params.id;
   const [tour , setTour] = useState(''); // show  singletour
   const [reviews , setReviews] = useState(); // show all reivews
