@@ -8,13 +8,10 @@ import { BASE_URL } from "../utils/config";
 import '../style/toursearch.css'
 
 // get ค่าที่ url ส่งมา
-import { useSearchParams  } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
-
- function searchResult() {  
-
+function SearchResult() {  
   const [singleTour, setSingleTour] = useState(null);
-
   const searchParams = useSearchParams(); // รับค่า url ที่ถูกส่งมา
 
   let location = searchParams.get('city');
@@ -66,5 +63,4 @@ import { useSearchParams  } from "next/navigation";
   );
 }
 
-export default searchResult;
-  
+export default SearchResult;

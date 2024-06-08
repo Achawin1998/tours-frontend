@@ -192,8 +192,8 @@ function TourDetails({ params }) {
   
                     <ListGroup className="user__reviews">
                         {reviews?.map(reviews => (
-                            <div className="review__item">
-                                <img src={avatar} className="" />
+                            <div className="review__item" key={reviews.id}>
+                                <img src={avatar} />
   
                                 <div className="w-100">
                                     <div className="d-flex align-items-center justify-content-between">
