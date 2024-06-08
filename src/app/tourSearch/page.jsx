@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import CommonSection from "../shared/CommonSection";
 import { Col, Container, Row } from "reactstrap";
 import TourCard from "../shared/TourCard";
@@ -12,6 +12,7 @@ import { useSearchParams } from "next/navigation";
 
 function SearchResult() {  
   const [singleTour, setSingleTour] = useState(null);
+
   const searchParams = useSearchParams(); // รับค่า url ที่ถูกส่งมา
 
   let location = searchParams.get('city');
@@ -35,8 +36,6 @@ function SearchResult() {
 
     getData();
   }, [location, distance, maxGroupSize]);
-
-  console.log(singleTour);  // เดี๋ยวมาแต่ง grid เพิ่ม 
 
   return (
     <div>   
@@ -63,4 +62,10 @@ function SearchResult() {
   );
 }
 
-export default SearchResult;
+export default function SuspendedSearchResult() {
+  return (
+    <Suspense fallback={<div>Loading search results...</div>}>
+      <SearchResult />
+    </Suspense>
+  );
+}
